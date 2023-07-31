@@ -4,7 +4,7 @@ services:
   bot:
     build: .
     volumes:
-      - ./_database:/app/database
+      - ${VOLUMES}/database:/app/database
     logging:
       driver: "json-file"
       options:
