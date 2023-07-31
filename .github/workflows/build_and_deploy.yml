@@ -1,0 +1,13 @@
+name: Build and Deploy
+run-name: Build and Deploy
+on: 
+  push:
+
+jobs:
+  BuildDocker:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yml" --env-file "/data/env-files/telegram_bot_url_notify.env" up -d --build
