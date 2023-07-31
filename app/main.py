@@ -141,7 +141,7 @@ async def cmd_help(update: Update, _: CallbackContext):
     await update.message.reply_text(msg)
 
 async def cmd_admin_stats(update: Update, _: CallbackContext):
-    if update.effective_chat.id != ADMIN_CHAT_ID:
+    if str(update.effective_chat.id) != str(ADMIN_CHAT_ID):
         await update.message.reply_text("You are not authorized to use this command.")
         return
     
