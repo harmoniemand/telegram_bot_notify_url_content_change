@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bot:
+    build: .
+    volumes:
+      - ./_database:/app/database
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "100k"
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      ADMIN_CHAT_ID: ${ADMIN_CHAT_ID}
+      POLL_INTERVAL: ${POLL_INTERVAL}
+      LOG_LEVEL: ${LOG_LEVEL}
